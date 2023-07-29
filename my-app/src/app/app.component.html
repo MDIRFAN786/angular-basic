@@ -2,13 +2,21 @@
 {{value}}
 
 <input type="text"  #myInput/>
-<button (click)="filterUser(myInput.value)"  > Search</button>
+<button (click)="filterUser(myInput.value)"  (keyup)="Onkeyup($event,myInput.value)"> Search</button>
 {{myInput.value}}
 
 <div class="container">
     <div class="card" *ngFor="let i of searchResult">
         <h2>Name : {{i.name}}</h2>
         <h2> Age:{{i.age}}  </h2>
+
+        <button (click)="onSelectUser(i)" >detail</button>
     </div>
 </div>
 
+
+<div>
+    <h1>selected User</h1>
+    <h2> {{selected?.name}} </h2>
+    <h2> {{selected?.age}} </h2>
+</div>
