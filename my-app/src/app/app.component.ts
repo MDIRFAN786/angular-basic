@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
+import { User } from './types';
+import { AppService } from './app.service';
 
 
 
-type User = {
-  name:string;
-  age:number;
-}
 
 @Component({
   selector: 'app-root',
@@ -15,24 +13,33 @@ type User = {
 
 
 export class AppComponent {
+  users:User[] = [];
+  filterUser:User[] = [];
 
-  // interface ApiResponse {
 
-  //   name: string;
-  //   age: number;
-  // }
+
+
+  constructor(private appService:AppService){
+    
+  }
+
+  ngOnInit(){
+    const obs = this.appService.getUser();
+
+    obs.subscribe((users)=>{
+      this.users = users;
+      this.filterUser = [...this.users]
+    })
+
+    this.filterUser = [...this.users];
+  }
 
 
   value:string = '';
+  
 
-  users: User[] = [
-    { name: 'abin', age: 10 },
-    { name: 'jerin', age: 20 },
-    { name: 'jain', age: 15 },
-  ];
-
-  searchResult = [...this.users];
-
+ 
+  imgUrl : string = 'https://i.imgur.com/XgbZdeA.jpeg';
 
   selected :User | null = null;
 
@@ -40,9 +47,9 @@ export class AppComponent {
 
 
 
-  filterUser(inputValue : string) {
+  filterUsers(inputValue : string) {
     this.value = inputValue;
-    this.searchResult = this.users.filter((student) =>
+    this.filterUser = this.users.filter((student) =>
       student.name.toLowerCase().includes(this.value.toLowerCase())
     );
   }
@@ -50,7 +57,7 @@ export class AppComponent {
   Onkeyup(event:KeyboardEvent , inputValue:string){
     this.value = inputValue;
     if(event.key==='Enter')
-      this.searchResult = this.users.filter((student) =>
+      this.filterUser = this.users.filter((student) =>
         student.name.toLowerCase().includes(this.value.toLowerCase())
       );
   }

@@ -2,11 +2,16 @@
 {{value}}
 
 <input type="text"  #myInput/>
-<button (click)="filterUser(myInput.value)"  (keyup)="Onkeyup($event,myInput.value)"> Search</button>
-{{myInput.value}}
+<button [(ngModel)]="value" (click)="filterUsers(myInput.value)"  (keyup)="Onkeyup($event,myInput.value)"> Search</button>
+
+
+<img [src]="imgUrl" height="100" alt="">
+
+<img src={{imgUrl}} height="140" alt="">
+
 
 <div class="container">
-    <div class="card" *ngFor="let i of searchResult">
+    <div class="card" *ngFor="let i of filterUser">
         <h2>Name : {{i.name}}</h2>
         <h2> Age:{{i.age}}  </h2>
 
@@ -27,3 +32,10 @@
     <h2> {{selected.name}} </h2>
     <h2> {{selected.age}} </h2>
 </div>
+
+
+
+<!-- 
+{{ value }}
+
+<input type="text" [(ngModel)]="value"  /> -->
