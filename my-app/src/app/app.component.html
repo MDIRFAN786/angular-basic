@@ -14,9 +14,16 @@
     </div>
 </div>
 
-
-<div>
+<!-- this is wrong ? with if -->
+<!-- 
+<div *ngIf = "selected">
     <h1>selected User</h1>
     <h2> {{selected?.name}} </h2>
     <h2> {{selected?.age}} </h2>
+</div> -->
+
+<div *ngIf = "selected">
+    <h1>selected User</h1>
+    <h2> {{selected.name}} </h2>
+    <h2> {{selected.age}} </h2>
 </div>
