@@ -1,14 +1,8 @@
+
+
 <div>
     <input type="text" [(ngModel)] = "searchText" />
     <button   (click)="onSearch()">Search</button>
-
-    <div class="result">
-        
-        <div class="card"  *ngFor="let i of users" >
-            <h1>hi</h1>
-            <h2> {{i.login}} </h2>
-            <img [src]="i.avatar_url" alt=""/>
-        </div>
-    </div>
-
+    
+    <app-user-details [detail]="users"></app-user-details>
 </div>

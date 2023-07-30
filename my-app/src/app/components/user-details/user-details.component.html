@@ -1,1 +1,8 @@
-<p>user-details works!</p>
+<div class="result">
+        
+    <div class="card"  *ngFor="let i of detail" >
+        <h1>hi</h1>
+        <h2> {{i.login}} </h2>
+        <img [src]="i.avatar_url" alt=""/>
+    </div>
+</div>
