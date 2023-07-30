@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GithubUser } from 'src/app/types';
 @Component({
   selector: 'app-user-details',
@@ -7,6 +7,12 @@ import { GithubUser } from 'src/app/types';
 })
 export class UserDetailsComponent {
   @Input()
-  detail:GithubUser[] = [];
+  detail!:GithubUser[];// ! now it is like override
 
+@Output()
+  onUserSelect:EventEmitter<GithubUser | null> = new EventEmitter();
+
+  onDetail(){
+    this.onUserSelect.emit();
+  }
 }

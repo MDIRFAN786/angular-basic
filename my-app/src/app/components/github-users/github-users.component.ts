@@ -12,6 +12,12 @@ export class GithubUsersComponent {
 
   constructor(private githubService : GithubService){}
 
+  handleEvent(){
+    console.log("hadeleed");
+  }
+
+
+
   onSearch(){
     
       
