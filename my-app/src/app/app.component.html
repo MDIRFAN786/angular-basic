@@ -1,2 +1,50 @@
 <app-github-users></app-github-users>
 
+
+
+
+<!-- 
+
+
+
+<!-- 
+{{value}}
+
+<input type="text"  #myInput/>
+<button [(ngModel)]="value" (click)="filterUsers(myInput.value)"  (keyup)="Onkeyup($event,myInput.value)"> Search</button>
+
+
+<img [src]="imgUrl" height="100" alt="">
+
+<img src={{imgUrl}} height="140" alt="">
+
+
+<div class="container">
+    <div class="card" *ngFor="let i of filterUser">
+        <h2>Name : {{i.name}}</h2>
+        <h2> Age:{{i.age}}  </h2>
+
+        <button (click)="onSelectUser(i)" >detail</button>
+    </div>
+</div>
+
+<!-- this is wrong ? with if -->
+<!-- 
+<div *ngIf = "selected">
+    <h1>selected User</h1>
+    <h2> {{selected?.name}} </h2>
+    <h2> {{selected?.age}} </h2>
+</div> -->
+
+<div *ngIf = "selected">
+    <h1>selected User</h1>
+    <h2> {{selected.name}} </h2>
+    <h2> {{selected.age}} </h2>
+</div>
+
+
+
+<!-- 
+{{ value }}
+
+<input type="text" [(ngModel)]="value"  /> --> --> -->
