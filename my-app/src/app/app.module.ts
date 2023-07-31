@@ -1,26 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 
-import { GithubUsersComponent } from './components/github-users/github-users.component';
+import { AppComponent } from './app.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { GithubUsersComponent } from './components/github-users/github-users.component';
+import { GithubUserDetailsComponent } from './components/github-user-details/github-user-details.component';
+import { SlideshowComponent } from './components/slideshow/slideshow.component';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    GithubUsersComponent,
-    UserDetailsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  declarations: [AppComponent, UserDetailsComponent, GithubUsersComponent, GithubUserDetailsComponent, SlideshowComponent],
+  imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

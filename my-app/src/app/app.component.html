@@ -1,50 +1,70 @@
-<app-github-users></app-github-users>
+<h2 *ngIf="dogSlideshowEnded">Dog slideshow has ended</h2>
+<h2 *ngIf="catSlideshowEnded">Cat slideshow has ended</h2>
+<app-slideshow
+  [imgList]="dogImages"
+  slideshowTitle="Dogs"
+  (onSlideshowEnd)="handleDogSlideshowEnd()"
+></app-slideshow>
 
-
-
-
-<!-- 
-
-
-
-<!-- 
-{{value}}
-
-<input type="text"  #myInput/>
-<button [(ngModel)]="value" (click)="filterUsers(myInput.value)"  (keyup)="Onkeyup($event,myInput.value)"> Search</button>
-
-
-<img [src]="imgUrl" height="100" alt="">
-
-<img src={{imgUrl}} height="140" alt="">
-
-
-<div class="container">
-    <div class="card" *ngFor="let i of filterUser">
-        <h2>Name : {{i.name}}</h2>
-        <h2> Age:{{i.age}}  </h2>
-
-        <button (click)="onSelectUser(i)" >detail</button>
-    </div>
-</div>
-
-<!-- this is wrong ? with if -->
-<!-- 
-<div *ngIf = "selected">
-    <h1>selected User</h1>
-    <h2> {{selected?.name}} </h2>
-    <h2> {{selected?.age}} </h2>
-</div> -->
-
-<div *ngIf = "selected">
-    <h1>selected User</h1>
-    <h2> {{selected.name}} </h2>
-    <h2> {{selected.age}} </h2>
-</div>
-
-
+<app-slideshow
+  [imgList]="catImages"
+  slideshowTitle="Cats"
+  (onSlideshowEnd)="handleCatSlideshowEnd()"
+></app-slideshow>
+<!-- <app-github-users></app-github-users> -->
+<!-- <app-user-details
+  userName="asdfa"
+  [userDetails]="student1Details"
+></app-user-details> -->
+<!-- <img src="https://i.imgur.com/XgbZdeA.jpeg" /> -->
+<!-- <app-user-details [userName]="student1"></app-user-details>
+<app-user-details userName="{{ student2 }}"></app-user-details> -->
 
 <!-- 
+<input type="text" /> -->
+
+<!-- <h1 [ngClass]="classes">{{ title }}</h1>
+<h1 [ngStyle]="styles">Trial</h1>
+
+
 {{ value }}
 
-<input type="text" [(ngModel)]="value"  /> --> --> -->
+<input type="text" [(ngModel)]="value" (keyup.enter)="onSearch()" />
+
+<button (click)="onUpdateValue()">Update Value</button>
+
+<button (click)="onSearch()">Search</button>
+
+<img [src]="imgUrl" height="100" />
+<img src="{{ imgUrl }}" height="100" />
+
+<div class="container">
+  <div
+    class="card"
+    *ngFor="
+      let u of filteredUsers;
+      let first = first;
+      let last = last;
+      let even = even;
+      let odd = odd;
+      let index = index
+    "
+  >
+    <h3>
+      Index: {{ index }} <br />
+      First: {{ first }} <br />
+      Last: {{ last }} <br />
+      Even: {{ even }} <br />
+      Odd: {{ odd }}
+    </h3>
+    <h2>Name: {{ u.name }}</h2>
+    <p>Age: {{ u.age }}</p>
+    <button (click)="onSelectUser(u)">View Details</button>
+  </div>
+</div>
+
+<div *ngIf="selectedUser">
+  <h1>Selected User</h1>
+  <h2>Name: {{ selectedUser.name }}</h2>
+  <p>Age: {{ selectedUser.age }}</p>
+</div> -->

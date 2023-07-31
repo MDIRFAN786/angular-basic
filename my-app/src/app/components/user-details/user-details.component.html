@@ -1,9 +1,4 @@
-<div class="result">
-        
-    <div class="card"  *ngFor="let i of detail" >
-        <h1>hi</h1>
-        <h2> {{i.login}} </h2>
-        <img [src]="i.avatar_url" alt=""/>
-        <button (click) = "onDetail()">detail</button>
-    </div>
+<h2>Selected User is: {{ userName }}</h2>
+<div>
+  {{ userDetails.name }}
 </div>

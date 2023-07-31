@@ -1,18 +1,15 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { GithubUser } from 'src/app/types';
+import { Component, Input } from '@angular/core';
+import { User } from 'src/app/types';
+
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrls: ['./user-details.component.css']
+  styleUrls: ['./user-details.component.css'],
 })
 export class UserDetailsComponent {
   @Input()
-  detail!:GithubUser[];// ! now it is like override
+  userName: string = '';
 
-@Output()
-  onUserSelect:EventEmitter<GithubUser | null> = new EventEmitter();
-
-  onDetail(){
-    this.onUserSelect.emit();
-  }
+  @Input()
+  userDetails!: User;
 }

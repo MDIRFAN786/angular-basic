@@ -1,0 +1,8 @@
+<div class="slideshow">
+  <h2>Slideshow: {{ slideshowTitle }}</h2>
+  <div>
+    <button (click)="prev()"><</button>
+    <img src="{{ imgList[activeIndex] }}" width="200" />
+    <button (click)="next()">></button>
+  </div>
+</div>
